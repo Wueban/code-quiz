@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <header>
+        <p> view high scores</p>
+        <div class="timer">time <span id="time">0</span></div>
+    </header>
+ 
+    <main class="container">
+         <!-- start the quiz button  -->
+<div class="star-btn"><button>start quiz</button></div>
+
+<!-- questions -->
+    <div id="questions" class="hide">
+        <h2 id="question-title"></h2>
+        <div id="choices" class="choices"></div>
+    </div>
+        
+    </main>
+    <!-- initials -->
+    <div id="end-screen" class="hide">
+        <h2>All done!</h2>
+        <p>Your final score is <span id="final-score"></span>.</p>
+        <p>
+          Enter initials: <input type="text" id="initials" />
+          <button id="submit">Submit</button>
+        </p>
+    </div>
+
+    <div class="button">
+        <button class="quit">exit quiz</button>
+        <button class="restart">continue</button>
+    </div>
+
+    <script src="./assets/script/script.js"></script>
+</body>
+</html>
