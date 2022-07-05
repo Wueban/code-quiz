@@ -1,16 +1,21 @@
 // dom elements 
-var QuestionEl = document.querySelector("#questions");
+var questionMainEL = document.querySelector("#questionMain");
+var questionTitleEL = document.querySelector("#questionTitle")
 var timerEl = document.querySelector(".timer");
 var startbtnEl = document.querySelector(".start-btn");
 var initialEl = document.querySelector("#initals")
 var submitbtn = document.querySelector("#submit")
-
+var answerChoiceA = document.getElementById("answerA")
+var answerChoiceB = document.getElementById("answerB");
+var answerChoiceC = document.getElementById("answerC");
+var answerChoiceD = document.getElementById("answerD");
 
 // state the quiz variables 
-var currentQuestion = 0;
-var time = questions.length * 3;
-var timerId;
-
+var time = 50;
+var timeStart = false
+var timeRemaining = true
+var score = 0
+var i = 0
 // save questions into an array withing an object 
 // list of all questions, choices, and answers
 var questions = [
@@ -81,35 +86,41 @@ var questions = [
       answer: "all of the above"
     }]
 
-var startQuiz = function (){
-    //dont show up the questions at the begging of the quiz
-    var screen = document.getElementById(".start-btn");
-    // the class hide will kepp hide the tag that has that element 
-    screen.setAttribute("class", "hide")
+    var countdown = setInterval(setCountdownTimer , 1000);
 
-    //show up again
-    QuestionEl.removeAttribute("class")
-
-    //start time
-
-    timerId = setInterval(clocktick, 1000);
-
-    //show starting time 
-    timerEl.textContent = time;
-
-    getQuestion();
-
-};
-
-var getQuestion = function (){
-    // get the questions from the array 
-    var currentQuestionIndex = questions[currentQuestion];
-     
-    // change the title with the current question
-    var titleEl = document.getElementById("question-title");
-    titleEl.textContent = currentQuestionIndex.title;
-
-    
+    //function that starts the countdown 
+   //function that changes the time var
+function setCountdownTimer() {
+    if (timeStart)
+    time--;
+    if(time<= 0) {
+    end-quiz();
+    time = 0;    
+    // clearInterval(countdownTimerInterval);
+    //alert user and stop quiz
+    }
+    document.getElementById("timer").innerHTML = time;
 }
 
-startbtnEl.addEventListener("click" , startQuiz)
+//click the start button 
+
+startbtnEl.addEventListener("click", function(){
+    QuestionEl.style.display = "block";
+    setCountdown.style.display = "none";
+    document.getElementById("scoreKeep").style.display = "block";
+    document.getElementById("score").innerHTML = score; 
+    setCountdownTimer();
+    quizQuestions();
+    timeStart = true;
+
+});
+
+var quizQuestions = function(){
+questionTitleEL.textContent = questions[i].questions
+answerChoiceA.textContent = questions[i].answerChoice[0]
+answerChoiceB.textContent = questions[i].answerChoice[1]; 
+answerChoiceC.textContent = questions[i].answerChoice[2]; 
+answerChoiceD.textContent = questions[i].answerChoice[3];  
+}
+
+   

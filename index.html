@@ -9,8 +9,18 @@
 </head>
 <body>
     <header>
-        <p> view high scores</p>
-        <div class="timer">time <span id="time">0</span></div>
+        <!-- view scores -->
+        <section id="scoreKeep">
+            <p>View high score</p>
+            <input type="button" value="high scores" id="score">
+
+
+        </section>
+
+        <!-- timer on the right of the page -->
+        <section id= "countdownTimer" style="display: none">
+            Time Remaining: <span id="timer"></span>
+        </section>
     </header>
  
     <main class="container">
@@ -18,14 +28,32 @@
 <div class="star-btn"><button>start quiz</button></div>
 
 <!-- questions -->
-    <div id="questions" class="hide">
+    <div id="questionMain" class="hide">
         <h2 id="question-title"></h2>
-        <div id="choices" class="choices"></div>
+        
+        <!-- quiz options  -->
+        <ul>
+            <div id="choices">
+                <button id="answerA"></button>
+            </div>
+
+            <div id="choices">
+                <button id="answerB"></button>
+            </div>
+
+            <div id="choices">
+                <button id="answerC"></button>
+            </div>
+
+            <div id="choices">
+                <button id="answerD"></button>
+            </div>
+        </ul>
     </div>
         
     </main>
     <!-- initials -->
-    <div id="end-screen" class="hide">
+    <!-- <div id="end-screen" class="hide">
         <h2>All done!</h2>
         <p>Your final score is <span id="final-score"></span>.</p>
         <p>
@@ -37,7 +65,7 @@
     <div class="button">
         <button class="quit">exit quiz</button>
         <button class="restart">continue</button>
-    </div>
+    </div> -->
 
     <script src="./assets/script/script.js"></script>
 </body>
