@@ -1,7 +1,7 @@
 // dom elements 
 var questionMainEL = document.querySelector("#questionMain");
 var questionTitleEL = document.querySelector("#questionTitle")
-var timerEl = document.querySelector(".timer");
+var timerEl = document.querySelector("#timer");
 var startbtnEl = document.querySelector(".start-btn");
 var initialEl = document.querySelector("#initals")
 var submitbtn = document.querySelector("#submit")
@@ -12,10 +12,10 @@ var answerChoiceD = document.getElementById("answerD");
 
 // state the quiz variables 
 var time = 50;
-var timeStart = false
+var timeStart = true;
 var timeRemaining = true
 var score = 0
-var i = 0
+
 // save questions into an array withing an object 
 // list of all questions, choices, and answers
 var questions = [
@@ -86,41 +86,50 @@ var questions = [
       answer: "all of the above"
     }]
 
-    var countdown = setInterval(setCountdownTimer , 1000);
+   
 
     //function that starts the countdown 
    //function that changes the time var
-function setCountdownTimer() {
-    if (timeStart)
-    time--;
-    if(time<= 0) {
-    end-quiz();
-    time = 0;    
-    // clearInterval(countdownTimerInterval);
-    //alert user and stop quiz
-    }
+function CountdownTimer() {
+    
+    var timeLeft = 50;
+
+    var timeInterval = setInterval(function(){
+        if(timeLeft > 1){
+            timerEl.textContent = timeLeft + 'you have this many seconds remaining';
+            //decrease the seconds
+            timeLeft--;
+        } else if (timeLeft ===  1){
+            timerEl.textContent = timeLeft;
+            timeLeft--;
+        } else {
+            //
+            timerEl.textContent = '';
+
+            // clear the interval to stop at 0
+            clearInterval(timeInterval);
+
+        }
+
+    },  1000)
+   
+    };
     document.getElementById("timer").innerHTML = time;
-}
+
 
 //click the start button 
 
 startbtnEl.addEventListener("click", function(){
-    QuestionEl.style.display = "block";
-    setCountdown.style.display = "none";
-    document.getElementById("scoreKeep").style.display = "block";
-    document.getElementById("score").innerHTML = score; 
-    setCountdownTimer();
-    quizQuestions();
-    timeStart = true;
-
+    CountdownTimer();
+    
 });
 
 var quizQuestions = function(){
-questionTitleEL.textContent = questions[i].questions
-answerChoiceA.textContent = questions[i].answerChoice[0]
-answerChoiceB.textContent = questions[i].answerChoice[1]; 
-answerChoiceC.textContent = questions[i].answerChoice[2]; 
-answerChoiceD.textContent = questions[i].answerChoice[3];  
+    questionTitleEL.textContent = questions[i].questions
+    answerChoiceA.textContent = questions[i].answerChoice[0]
+    answerChoiceB.textContent = questions[i].answerChoice[1]; 
+    answerChoiceC.textContent = questions[i].answerChoice[2]; 
+    answerChoiceD.textContent = questions[i].answerChoice[3];  
 }
 
    
