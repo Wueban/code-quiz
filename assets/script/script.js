@@ -9,6 +9,8 @@ var answerChoiceA = document.getElementById("answerA")
 var answerChoiceB = document.getElementById("answerB");
 var answerChoiceC = document.getElementById("answerC");
 var answerChoiceD = document.getElementById("answerD");
+var correctAnswer = document.getElementById("correcAnswer")
+ 
 
 // state the quiz variables 
 var time = 50;
@@ -118,13 +120,13 @@ function CountdownTimer() {
 
 
 // show the questions 
-//loop throguht the array 
+ 
 var quizQuestions = function(){
-    questionTitleEL.textContent = questions[i].questions
-    answerChoiceA.textContent = questions[i].answerChoice[0]
-    answerChoiceB.textContent = questions[i].answerChoice[1]; 
-    answerChoiceC.textContent = questions[i].answerChoice[2]; 
-    answerChoiceD.textContent = questions[i].answerChoice[3];  
+//loop throguht the array
+for (var value of questions){
+  var listItemEl = document.createElement("li")
+
+}
 }
 
 var answerChoiceA = function(event){
@@ -136,5 +138,6 @@ var answerChoiceA = function(event){
 
 startbtnEl.addEventListener("click", function(){
     CountdownTimer();
+    quizQuestions();
     
 });
