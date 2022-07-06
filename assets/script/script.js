@@ -10,13 +10,13 @@ var answerChoiceB = document.getElementById("answerB");
 var answerChoiceC = document.getElementById("answerC");
 var answerChoiceD = document.getElementById("answerD");
 var correctAnswer = document.getElementById("correcAnswer")
+var listEl = document.querySelector(".question")
  
 
 // state the quiz variables 
 var time = 50;
-var timeStart = true;
-var timeRemaining = true
 var score = 0
+
 
 // save questions into an array withing an object 
 // list of all questions, choices, and answers
@@ -122,12 +122,39 @@ function CountdownTimer() {
 // show the questions 
  
 var quizQuestions = function(){
+
+  
+    
 //loop throguht the array
-for (var value of questions){
-  var listItemEl = document.createElement("li")
+
+for (var i = 0 ; i < questions.length; i++){ 
+     console.log(questions[i].title)
+     console.log(questions[i].choices)
+     console.log(questions[i].answer)
+
+     var listQ = document.createElement("li")
+     listQ.className = "my-list"
+     listQ.innerHTML = questions[i].title
+     listEl.appendChild(listQ)
+
+     var listChoices = document.createElement("li")
+     listChoices.innerHTML = questions[i].choices;
+     listEl.appendChild(listChoices)
+
+     
+     
+   
+
 
 }
+
+
+
+
+
+
 }
+
 
 var answerChoiceA = function(event){
     event.stopPropagation();
