@@ -117,13 +117,8 @@ function CountdownTimer() {
     document.getElementById("timer").innerHTML = time;
 
 
-//click the start button 
-
-startbtnEl.addEventListener("click", function(){
-    CountdownTimer();
-    
-});
-
+// show the questions 
+//loop throguht the array 
 var quizQuestions = function(){
     questionTitleEL.textContent = questions[i].questions
     answerChoiceA.textContent = questions[i].answerChoice[0]
@@ -132,4 +127,14 @@ var quizQuestions = function(){
     answerChoiceD.textContent = questions[i].answerChoice[3];  
 }
 
-   
+var answerChoiceA = function(event){
+    event.stopPropagation();
+        correctAnswer= questionsArray[i].correctAnswer;
+        console.log("correctAnswer " + correctAnswer);
+
+}
+
+startbtnEl.addEventListener("click", function(){
+    CountdownTimer();
+    
+});
