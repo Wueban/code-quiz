@@ -1,6 +1,9 @@
 # code-quiz
 
-##mock up 
+# link
+- https://wueban.github.io/code-quiz/
+
+## mock up 
 ![Screen Shot 2022-07-06 at 16 46 13](https://user-images.githubusercontent.com/99931043/177640031-4b6eec48-1a3c-410c-9ec5-8540671d4351.png)
 
 
