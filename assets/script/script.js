@@ -1,30 +1,11 @@
-// dom elements 
-var questionMainEL = document.querySelector("#questionMain");
-var questionTitleEL = document.querySelector("#questionTitle")
-var timerEl = document.querySelector("#timer");
-var startbtnEl = document.querySelector(".start-btn");
-var initialEl = document.querySelector("#initals")
-var submitbtn = document.querySelector("#submit")
-var answerChoiceA = document.getElementById("answerA")
-var answerChoiceB = document.getElementById("answerB");
-var answerChoiceC = document.getElementById("answerC");
-var answerChoiceD = document.getElementById("answerD");
-var correctAnswer = document.getElementById("correcAnswer")
-var listEl = document.querySelector(".question")
- 
-
-// state the quiz variables 
+var timerEl = document.getElementById("timer")
 var time = 50;
-var score = 0
 
-
-// save questions into an array withing an object 
-// list of all questions, choices, and answers
-var questions = [
-    {
+var questions =[ {
+    
       title: "Which one is a looping structure in JavaScript?",
       choices: ["All the below", "For", "While", "do-while loops"],
-      answer: "All the below"
+      answer: 0,
     },
     {
       title: "What are the two basic groups of data types in JavaScript?",
@@ -88,10 +69,7 @@ var questions = [
       answer: "all of the above"
     }]
 
-   
 
-    //function that starts the countdown 
-   //function that changes the time var
 function CountdownTimer() {
     
     var timeLeft = 50;
@@ -117,54 +95,50 @@ function CountdownTimer() {
    
     };
     document.getElementById("timer").innerHTML = time;
+// functions with a parameter 
+ var quizQuestions = function(q){
 
-
-// show the questions 
- 
-var quizQuestions = function(){
-
-  
+    // selec element where the questions will apear 
+        var tittleDiv = document.getElementById("title");
     
-//loop throguht the array
-
-for (var i = 0 ; i < questions.length; i++){ 
-     console.log(questions[i].title)
-     console.log(questions[i].choices)
-     console.log(questions[i].answer)
-
-     var listQ = document.createElement("li")
-     listQ.className = "my-list"
-     listQ.innerHTML = questions[i].title
-     listEl.appendChild(listQ)
-
-     var listChoices = document.createElement("li")
-     listChoices.innerHTML = questions[i].choices;
-     listEl.appendChild(listChoices)
-
-     
-     
-   
-
-
-}
-
-
-
-
-
-
-}
-
-
-var answerChoiceA = function(event){
-    event.stopPropagation();
-        correctAnswer= questionsArray[i].correctAnswer;
-        console.log("correctAnswer " + correctAnswer);
-
-}
-
-startbtnEl.addEventListener("click", function(){
-    CountdownTimer();
-    quizQuestions();
+        //fix, switch the questions with Q so when we call back the function quizQuestions() with put the parameter of questions 
+        tittleDiv.textContent = q.title
     
-});
+        //sellect the options on the li
+    
+        var alt = document.querySelectorAll(".alternative");
+        
+    
+        
+    // loop throguht the array
+    
+        alt.forEach(function(element , index){
+            element.textContent = q.choices[index];
+            
+            element.addEventListener("click", function(){
+                // check the correct answer
+                if(q.answer === index){
+                console.log("correct asnwer")
+                quizQuestions(questions[questionsCount]);
+                questionsCount++
+            } else{
+                console.log("wrong asnwer")
+            }
+            })
+        })
+    }
+
+       
+        var btn = document.getElementById('btn')
+        
+        // keep track of questions 
+        var questionsCount = 0;
+
+
+        btn.addEventListener("click", function(){
+            CountdownTimer();
+            quizQuestions(questions[questionsCount]);
+            questionsCount++
+        });
+
+        

@@ -9,47 +9,21 @@
 </head>
 <body>
     <header>
-        <!-- view scores -->
-        <section id="scoreKeep">
-            <p>View high score</p>
-            <input type="button" value="high scores" id="score">
-
-
-        </section>
-
-        <!-- timer on the right of the page -->
         <section id= "countdownTimer" >
             Time Remaining: <span id="timer"></span>
         </section>
     </header>
- 
-    <main class="container">
-         <!-- start the quiz button  -->
-    <div>
-        <button class="start-btn">start quiz</button>
-    </div>
+    <main>
+        <div id="title"></div>
+        <ul>
+            <li class="alternative"></li>
+            <li class="alternative"></li>
+            <li class="alternative"></li>
+            <li class="alternative"></li>
+        </ul>
 
-<!-- questions -->
-    <div class="question">
-        <div class="choices"></div>
-        <div class="answer-cotainer"></div>
-    </div>
-        
+        <button id="btn">start</button>
     </main>
-    <!-- initials -->
-    <div id="end-screen" class="hide">
-        <h2>All done!</h2>
-        <p>Your final score is <span id="final-score"></span>.</p>
-        <p>
-          Enter initials: <input type="text" id="initials" />
-          <button id="submit">Submit</button>
-        </p>
-    </div>
-
-    <div class="button">
-        <button class="quit">exit quiz</button>
-        <button class="restart">continue</button>
-    </div>
 
     <script src="./assets/script/script.js"></script>
 </body>
