@@ -21,4 +21,13 @@ main{
 
 ul li {
     list-style: none;
+    
+}
+
+.alternative {
+    font-size: 30px;
+    border: solid black;
+    border-radius: 20px;
+    margin: 30px;
+    background-color: purple;
 }
